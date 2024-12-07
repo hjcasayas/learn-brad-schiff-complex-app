@@ -10,11 +10,8 @@ A [complex app](https://www.udemy.com/course/learn-javascript-full-stack-from-sc
 ### CLI Commands
 Open a terminal for each command
 ```bash 
-npm run watch:lib:interfaces
-npm run watch:lib:repositories
-npm run watch:lib:services
-npm run watch:web:express-ts
 docker compose up watch 
+npm run watch:web:express-ts-css
 ```
 
 ### Local Web URLs
@@ -44,11 +41,15 @@ docker compose up watch
                     "from": "src/views/**/*.ejs",
                     "to": "dist/src/views/"
                 }
+           ],
+            "copyFilesSettings": {
+                "whenFileExists": "overwrite"
+            }
         }
         ```
     - add copy-files-from-to to build script.
         ```json
         {
-            "build": "tsc --build --clean && tsc --build && copy-files-from-to",
+            "build": "tsc --build --clean && tsc --build && copy-files-from-to"
         }
         ```
