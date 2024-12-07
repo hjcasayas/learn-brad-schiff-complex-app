@@ -4,12 +4,22 @@
   "description": "Complex app project from one of the courses of Brad Schiff.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:web:express-ts-css": "npm run build -w @complex-app/web-express-ts-css --if-present",
+    "start:web:express-ts-css": "npm run start -w @complex-app/web-express-ts-css --if-present",
+    "npm-check:web:express-ts-css": "npm run npm-check -w @complex-app/web-express-ts-css --if-present",
+    "npm-check": "npm-check -u"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "workspaces": [
     "web/express-ts-css"
-  ]
+  ],
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "nodemon": "^3.1.7",
+    "npm-check": "^6.0.1",
+    "typescript": "^5.7.2"
+  }
 }
