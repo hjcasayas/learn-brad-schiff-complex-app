@@ -7,7 +7,7 @@
     "build": "tsc --build --clean && tsc --build && copy-files-from-to",
     "start": "node dist/index.js",
     "npm-check": "npm-check -u",
-    "watch": "nodemon --exec \"npm run build\" -e ts,js,ejs --ignore dist/ --ignore node_modules/",
+    "watch": "nodemon --exec \"npm run build\" -e ts,js,ejs,css --ignore dist/ --ignore node_modules/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -25,8 +25,12 @@
   },
   "copyFiles": [
     {
-      "from": "src/views/**/*.ejs",
+      "from": "src/views/**/*",
       "to": "dist/src/views/"
+    },
+    {
+      "from": "src/public/**/*",
+      "to": "dist/src/public/"
     }
   ],
   "copyFilesSettings": {
