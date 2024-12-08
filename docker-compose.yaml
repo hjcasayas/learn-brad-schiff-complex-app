@@ -19,7 +19,15 @@ services:
       watch:
         - action: sync
           path: ./web/express-ts-css/dist
-          target: /todo-app/web/express-ts-css/dist
+          target: /complex-app/web/express-ts-css/dist
+        - action: rebuild
+          path: ./web/express-ts-css/package.json
+        - action: rebuild
+          path: ./package.json
+        - action: rebuild
+          path: ./docker-compose.yaml
+        - action: rebuild
+          path: ./web-express-ts-css.dockerfile
 
   mongo:
     image: mongo
