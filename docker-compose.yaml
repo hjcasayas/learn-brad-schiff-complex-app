@@ -20,8 +20,18 @@ services:
         - action: sync
           path: ./web/express-ts-css/dist
           target: /complex-app/web/express-ts-css/dist
+        - action: sync
+          path: ./lib/interfaces/dist
+          target: /complex-app/lib/interfaces/dist
+        - action: sync
+          path: ./lib/services/dist
+          target: /complex-app/lib/services/dist
         - action: rebuild
           path: ./web/express-ts-css/package.json
+        - action: rebuild
+          path: ./lib/interfaces/package.json
+        - action: rebuild
+          path: ./lib/services/package.json
         - action: rebuild
           path: ./package.json
         - action: rebuild
