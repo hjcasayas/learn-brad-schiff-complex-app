@@ -15,6 +15,9 @@
     "build:lib:services": "npm run build -w @complex-app/lib-services --if-present",
     "watch:lib:services": "npm run watch -w @complex-app/lib-services --if-present",
     "npm-check:lib:services": "npm run npm-check -w @complex-app/lib-services --if-present",
+    "build:lib:repositories": "npm run build -w @complex-app/lib-repositories --if-present",
+    "watch:lib:repositories": "npm run watch -w @complex-app/lib-repositories --if-present",
+    "npm-check:lib:repositories": "npm run npm-check -w @complex-app/lib-repositories --if-present",
     "npm-check": "npm-check -u"
   },
   "keywords": [],
@@ -23,7 +26,8 @@
   "workspaces": [
     "web/express-ts-css",
     "lib/interfaces",
-    "lib/services"
+    "lib/services",
+    "lib/repositories"
   ],
   "devDependencies": {
     "@types/node": "^22.10.1",

@@ -4,3 +4,4 @@
 *.dockerfile
 README.md
 .git
+docker-compose.yaml

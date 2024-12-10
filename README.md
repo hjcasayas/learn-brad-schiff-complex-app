@@ -11,6 +11,9 @@ A [complex app](https://www.udemy.com/course/learn-javascript-full-stack-from-sc
 Open a terminal for each command
 ```bash 
 docker compose up watch 
+npm run watch:lib:interfaces
+npm run watch:lib:repositories
+npm run watch:lib:services
 npm run watch:web:express-ts-css
 ```
 

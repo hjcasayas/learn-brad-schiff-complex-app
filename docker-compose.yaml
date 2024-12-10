@@ -26,12 +26,17 @@ services:
         - action: sync
           path: ./lib/services/dist
           target: /complex-app/lib/services/dist
+        - action: sync
+          path: ./lib/repositories/dist
+          target: /complex-app/lib/repositories/dist
         - action: rebuild
           path: ./web/express-ts-css/package.json
         - action: rebuild
           path: ./lib/interfaces/package.json
         - action: rebuild
           path: ./lib/services/package.json
+        - action: rebuild
+          path: ./lib/repositories/package.json
         - action: rebuild
           path: ./package.json
         - action: rebuild
