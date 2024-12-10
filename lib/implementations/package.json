@@ -20,6 +20,7 @@
   "description": "",
   "dependencies": {
     "@complex-app/lib-repositories": "^1.0.0",
-    "@complex-app/lib-services": "^1.0.0"
+    "@complex-app/lib-services": "^1.0.0",
+    "mongodb": "^6.11.0"
   }
 }

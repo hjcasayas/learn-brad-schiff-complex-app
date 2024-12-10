@@ -1,4 +1,4 @@
-import type { UserModel, IUserService } from "@user/index.js";
+import type { UserModel, IUserService } from "./index.js";
 
 export class UserService implements IUserService {
 

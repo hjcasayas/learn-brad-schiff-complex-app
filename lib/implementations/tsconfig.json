@@ -2,6 +2,11 @@
     "extends": "../../lib.tsconfig.json",
     "compilerOptions": {
         "outDir": "dist",
-        "paths": {},
+        "paths": {
+            "@root/*": ["./src/*"],
+            "@repositories/*": [
+                "./src/repositories/*"
+            ]
+        },
     }
 }

@@ -1,4 +1,4 @@
-import type { BaseEntity } from "@root/base-entity.js";
+import type { BaseEntity } from "../base-entity.js";
 
 export interface UserEntity extends BaseEntity {
     username: string;
