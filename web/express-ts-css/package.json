@@ -15,7 +15,6 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@complex-app/lib-interfaces": "^1.0.0",
     "@complex-app/lib-services": "^1.0.0",
     "ejs": "^3.1.10",
     "express": "^5.0.1",

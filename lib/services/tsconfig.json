@@ -1,6 +1,11 @@
 {
     "extends": "../../lib.tsconfig.json",
     "compilerOptions": {
-      "outDir": "dist"
+        "outDir": "dist",
+        "paths": {
+            "@user/*": [
+                "./src/user/*"
+            ]
+        }
     }
-  }
+}

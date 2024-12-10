@@ -16,8 +16,5 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "@complex-app/lib-interfaces": "^1.0.0"
-  }
+  "description": ""
 }

@@ -1,1 +1,1 @@
-export * from './src/user-service.js'
+export * from '@user/index.js'

@@ -9,9 +9,6 @@
     "start:web:express-ts-css": "npm run start -w @complex-app/web-express-ts-css --if-present",
     "watch:web:express-ts-css": "npm run watch -w @complex-app/web-express-ts-css --if-present",
     "npm-check:web:express-ts-css": "npm run npm-check -w @complex-app/web-express-ts-css --if-present",
-    "build:lib:interfaces": "npm run build -w @complex-app/lib-interfaces --if-present",
-    "watch:lib:interfaces": "npm run watch -w @complex-app/lib-interfaces --if-present",
-    "npm-check:lib:interfaces": "npm run npm-check -w @complex-app/lib-interfaces --if-present",
     "build:lib:services": "npm run build -w @complex-app/lib-services --if-present",
     "watch:lib:services": "npm run watch -w @complex-app/lib-services --if-present",
     "npm-check:lib:services": "npm run npm-check -w @complex-app/lib-services --if-present",
@@ -25,7 +22,6 @@
   "license": "ISC",
   "workspaces": [
     "web/express-ts-css",
-    "lib/interfaces",
     "lib/services",
     "lib/repositories"
   ],

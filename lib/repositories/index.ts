@@ -1,1 +1,2 @@
-export * from './src/user.js';
+export * from '@user/index.js';
+export * from '@root/base-entity.js';
