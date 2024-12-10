@@ -29,6 +29,9 @@ services:
         - action: sync
           path: ./lib/repositories/dist
           target: /complex-app/lib/repositories/dist
+        - action: sync
+          path: ./lib/implementations/dist
+          target: /complex-app/lib/implementations/dist
         - action: rebuild
           path: ./web/express-ts-css/package.json
         - action: rebuild
@@ -37,6 +40,8 @@ services:
           path: ./lib/services/package.json
         - action: rebuild
           path: ./lib/repositories/package.json
+        - action: rebuild
+          path: ./lib/implementations/package.json
         - action: rebuild
           path: ./package.json
         - action: rebuild
