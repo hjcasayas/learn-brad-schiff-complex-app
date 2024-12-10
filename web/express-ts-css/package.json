@@ -18,11 +18,13 @@
     "@complex-app/lib-interfaces": "^1.0.0",
     "@complex-app/lib-services": "^1.0.0",
     "ejs": "^3.1.10",
-    "express": "^5.0.1"
+    "express": "^5.0.1",
+    "validator": "^13.12.0"
   },
   "devDependencies": {
     "@types/ejs": "^3.1.5",
     "@types/express": "^5.0.0",
+    "@types/validator": "^13.12.2",
     "copy-files-from-to": "^3.12.0"
   },
   "copyFiles": [
