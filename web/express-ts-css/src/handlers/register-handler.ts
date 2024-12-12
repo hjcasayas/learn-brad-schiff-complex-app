@@ -1,16 +1,13 @@
+import type { Handler, Request } from "express";
+
 import type { IUserService } from "@complex-app/lib-services";
-import type { Handler } from "express";
-import { UserValidator } from "../validators/user.js";
+
+import type { RegisterUserDTO } from "../register/register-user-dto.js";
 
 export const registerHandler = ({ userService }: { userService: IUserService }): Handler => {
-    return async (req, res) => {
-        const userValidator = new UserValidator(req.body);
-        const { user } = userValidator.getUser();
-        if (user != null) {
-            await userService.register(user);
-            res.status(201).json({ message: 'Successfully created user!' });
-        } else {
-            res.status(400).json({ message: 'Something went wrong!' });
-        }
+    return async (req: Request<{ [key: string]: any }, any, RegisterUserDTO, { [key: string]: any }, Record<string, any>>, res) => {
+        const { username, email, password } = req.body;
+        await userService.register({ username, email, password });
+        res.status(201).json({ success: true, message: 'Successfully registered user!' });
     }
 }

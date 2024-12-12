@@ -1,6 +1,6 @@
 import { createServer } from "node:http";
 import { createExpressApp } from "./src/app.js";
-import { mongoClient, MongoUserRepository, UserServiceImpl } from '@complex-app/lib-implementations'
+import { mongoClient, MongoUserRepository, UserServiceImpl } from '@complex-app/lib-implementations';
 import { UserService } from "@complex-app/lib-services";
 
 const start = async () => {
