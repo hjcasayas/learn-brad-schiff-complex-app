@@ -17,6 +17,7 @@
     "npm-check:lib:repositories": "npm run npm-check -w @complex-app/lib-repositories --if-present",
     "build:lib:implementations": "npm run build -w @complex-app/lib-implementations --if-present",
     "watch:lib:implementations": "npm run watch -w @complex-app/lib-implementations --if-present",
+    "prisma:generate:lib:implementations": "npm run prisma:generate -w @complex-app/lib-implementations --if-present",
     "npm-check:lib:implementations": "npm run npm-check -w @complex-app/lib-implementations --if-present",
     "npm-check": "npm-check -u"
   },

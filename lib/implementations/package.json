@@ -9,8 +9,11 @@
     "./index.js": "./dist/index.js"
   },
   "scripts": {
-    "build": "tsc --build --clean && tsc --build",
+    "build": "tsc --build --clean && tsc --build && npm run prisma:generate",
     "watch": "nodemon --exec \"npm run build\" -e ts --ignore dist/ --ignore node_modules/",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate:dev": "prisma migrate dev --create-only",
+    "prisma:migrate": "prisma migrate",
     "npm-check": "npm-check -u",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -21,6 +24,8 @@
   "dependencies": {
     "@complex-app/lib-repositories": "^1.0.0",
     "@complex-app/lib-services": "^1.0.0",
-    "mongodb": "^6.11.0"
+    "@prisma/client": "^6.0.1",
+    "mongodb": "^6.11.0",
+    "prisma": "^6.0.1"
   }
 }
