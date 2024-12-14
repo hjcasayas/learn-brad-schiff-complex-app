@@ -7,4 +7,8 @@ export class UserService implements IUserService {
     register = async (user: UserModel): Promise<void> => {
         return await this.implementation.register(user);
     }
+
+    login = async (params: {username: string; password: string;}): Promise<UserModel> => {
+        return await this.implementation.login(params);
+    }
 }

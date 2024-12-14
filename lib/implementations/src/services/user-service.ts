@@ -8,4 +8,9 @@ export class UserServiceImpl implements IUserService {
         const user: UserEntity = { ...userModel, createdDate: new Date(), updatedDate: new Date() };
         await this.userRepository.add(user);
     }
+
+    login = async (params: { username: string; password: string; }): Promise<UserModel> => {
+        const user = await this.userRepository.getByUsernameAndPassword(params);
+        return {username: user.username, email: user.email, password: user.password };
+    }
 }
