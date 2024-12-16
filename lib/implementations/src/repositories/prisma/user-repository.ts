@@ -9,32 +9,40 @@ export class PrismaUserRepository implements IUserRepository {
     }
 
     add = async (user: UserEntity): Promise<UserEntity> => {
-        const createdUser = await this.userCollection.create({
-            data: {
-                username: user.username,
-                password: user.password,
-                email: user.email
-            }
-        });
+        try {
+            const createdUser = await this.userCollection.create({
+                data: {
+                    username: user.username,
+                    password: user.password,
+                    email: user.email
+                }
+            });
 
-        return createdUser;
+            return createdUser;
+        } catch (error) {
+            // TODO: log error
+            console.log({ error });
+            throw new Error('Repository implementation error.');
+        }
     };
 
-    getByUsername = async (params: { username: string; password: string; }): Promise<Omit<UserEntity, 'password'>> => {
-        const result = await this.userCollection.findUniqueOrThrow({
-            where: { username: params.username }
-        });
+    getByUsername = async (params: { username: string; password: string; }): Promise<Omit<UserEntity, 'password'> | null> => {
+        try {
+            const result = await this.userCollection.findUniqueOrThrow({
+                where: { username: params.username }
+            });
 
-        if (result == null || (result != null && result.password != params.password)) {
-            throw new Error('Username/Password in incorrect!');
+            return {
+                id: result.id,
+                username: result.username,
+                email: result.email,
+                createdDate: result.createdDate,
+                updatedDate: result.updatedDate,
+            };
+        } catch (error) {
+            // TODO: log error
+            console.log({ error });
+            throw new Error('Repository implementation error.');
         }
-
-        return {
-            id: result.id,
-            username: result.username,
-            email: result.email,
-            createdDate: result.createdDate,
-            updatedDate: result.updatedDate,
-        };
     }
 }
