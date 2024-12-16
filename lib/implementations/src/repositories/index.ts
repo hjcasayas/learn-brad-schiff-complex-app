@@ -1,1 +1,1 @@
-export * from './mongodb/index.js';
+export * from './prisma/index.js';

@@ -8,17 +8,19 @@ export class PrismaUserRepository implements IUserRepository {
         this.userCollection = this.prismaClient.user;
     }
 
-    add = async (user: UserEntity): Promise<void> => {
-        await this.userCollection.create({
+    add = async (user: UserEntity): Promise<UserEntity> => {
+        const createdUser = await this.userCollection.create({
             data: {
                 username: user.username,
                 password: user.password,
                 email: user.email
             }
         });
+
+        return createdUser;
     };
 
-    getByUsernameAndPassword = async (params: { username: string; password: string; }): Promise<UserEntity> => {
+    getByUsername = async (params: { username: string; password: string; }): Promise<Omit<UserEntity, 'password'>> => {
         const result = await this.userCollection.findUniqueOrThrow({
             where: { username: params.username }
         });
@@ -27,6 +29,12 @@ export class PrismaUserRepository implements IUserRepository {
             throw new Error('Username/Password in incorrect!');
         }
 
-        return result;
+        return {
+            id: result.id,
+            username: result.username,
+            email: result.email,
+            createdDate: result.createdDate,
+            updatedDate: result.updatedDate,
+        };
     }
 }
