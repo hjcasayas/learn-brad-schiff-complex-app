@@ -20,11 +20,5 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "@complex-app/lib-repositories": "^1.0.0",
-    "@complex-app/lib-services": "^1.0.0",
-    "@prisma/client": "^6.0.1",
-    "prisma": "^6.0.1"
-  }
+  "description": ""
 }
