@@ -9,12 +9,12 @@ export class UserService implements IUserService {
         await this.userRepository.add(user);
     }
 
-    login = async (params: { username: string; password: string; }): Promise<Omit<UserModel, 'password'> | null> => {
-        const user = await this.userRepository.getByUsername(params);
+    login = async ({ username }: { username: string; password: string; }): Promise<UserModel | null> => {
+        const user = await this.userRepository.getByUsername({ username });
         if (user == null) {
             return user;
         }
 
-        return { username: user.username, email: user.email };
+        return { username: user.username, email: user.email, password: user.password };
     }
 }
