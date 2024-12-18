@@ -12,9 +12,8 @@ export const registerUserMiddleware: Handler = async (req, res, next) => {
         res.status(400).json({ data: null, errors });
         return;
     }
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(registerUserDTO.password, salt);
 
-    req.body = { ...registerUserDTO, password: hashedPassword };
+
+    req.body = registerUserDTO;
     next();
 }
