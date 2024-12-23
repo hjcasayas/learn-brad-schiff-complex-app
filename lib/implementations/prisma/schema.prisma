@@ -20,7 +20,7 @@ model User {
   username    String   @unique
   password    String
   createdDate DateTime @default(now())
-  updatedDate DateTime @default(now())
+  updatedDate DateTime @updatedAt
 
   @@map("users")
 }

@@ -23,8 +23,8 @@ export const registerUserValidator = ({username, email, password}: RegisterUserD
         errors.push('Password must be at least 12 characters');
     }
 
-    if (password.length > 100) {
-        errors.push('Password cannot exceed 100 characters');
+    if (password.length > 50) {
+        errors.push('Password cannot exceed 50 characters');
     }
 
     if (username.length > 0 && username.length < 3) {
