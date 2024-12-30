@@ -10,20 +10,28 @@ export const loginHandler = ({ userService }: { userService: IUserService }): Ha
 
         if (user == null) {
             // TODO: logger
-            console.log(`No user found with username: ${req.body.username}.`);
-            res.status(404).json({ success: false, message: 'Either the username or password is incorrect!' });
+            console.log('No user found with username: ', req.body.username);
+            res.status(400).json({ success: false, message: 'Either the username or password is incorrect!' });
             return;
         }
 
         const isPasswordCorrect = await compare(req.body.password, user.password);
         if (!isPasswordCorrect) {
             // TODO: logger
-            console.log(`Wrong password.`);
-            res.status(404).json({ success: false, message: 'Either the username or password is incorrect!' });
+            console.log('Wrong password for username: ', req.body.username);
+            res.status(400).json({ success: false, message: 'Either the username or password is incorrect!' });
             return;
         }
 
-        req.session.user = { username: user.username, email: user.email };
-        res.status(200).redirect('/');
+        req.session.save((error) => {
+            if (error != null) {
+                // TODO: logger
+                console.log('Session saving error: ', error);
+                throw error;
+            }
+
+            req.session.user = { username: user.username, email: user.email };
+            res.status(200).redirect('/');
+        });
     }
 }
