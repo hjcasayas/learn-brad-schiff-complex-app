@@ -21,8 +21,8 @@ export class PrismaUserRepository implements IUserRepository {
             return createdUser;
         } catch (error) {
             // TODO: log error
-            console.log({ error });
-            throw new Error('Repository implementation error.');
+            console.log('PrismaUserRepository.add error: ', error);
+            return null;
         }
     };
 
@@ -35,8 +35,8 @@ export class PrismaUserRepository implements IUserRepository {
             return result;
         } catch (error) {
             // TODO: log error
-            console.log({ error });
-            throw new Error('Repository implementation error.');
+            console.log('PrismaUserRepository.getByUsername: ', error);
+            return null;
         }
     }
 }
