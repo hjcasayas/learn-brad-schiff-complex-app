@@ -11,8 +11,13 @@ export const registerHandler = ({ userService }: { userService: IUserService }):
 
         const salt = await genSalt(10);
         const hashedPassword = await hash(password, salt);
-        await userService.register({ username, email, password: hashedPassword });
-        
+
+        const createdUser = await userService.register({ username, email, password: hashedPassword });
+        if (createdUser == null) {
+            res.status(500).json({ success: false, message: 'Unable to register user!' });
+            return;
+        }
+
         res.status(201).json({ success: true, message: 'Successfully registered user!' });
     }
 }
