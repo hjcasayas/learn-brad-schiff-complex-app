@@ -1,4 +1,4 @@
-import express from 'express'
+import express, { type Response, type Request, type NextFunction } from 'express';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createRouter } from './router.js';
@@ -23,6 +23,12 @@ export const createExpressApp = (dependencies: { userService: IUserService }) =>
     app.use(express.json());
     app.use(express.static(path.resolve(path.dirname(fileURLToPath(import.meta.url)), './public')))
     app.use('/', createRouter(dependencies));
+
+    app.use((error: unknown, _req: Request, res: Response, _next: NextFunction) => {
+        // TODO: log error;
+        console.log({ error });
+        res.status(500).json({ success: false, message: 'Something went wrong' });
+    });
 
     return app;
 }
